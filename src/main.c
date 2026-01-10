@@ -38,52 +38,52 @@ typedef struct
     int head, tail, queue_size;
 } circular_queue;
 
-//TASK 1
+
 int read_file(const char *filename, product Item[]) ;
-//TASK 1
+
 void merge(product arr[], int left, int mid, int right) ;
-//TASK 1
+
 void merge_sort(product arr[], int left, int right) ;
-//TASK 1
+
 void print_production_line(product arr[]) ;
 
-//TASK 2
+
 //Function to initialise empty queue
 void init_queue(circular_queue *q) ;
 
-//TASK 2
+
 // function to check if queue is empty
 int is_empty(circular_queue *q) ;
 
-//TASK 2
+
 //function to add an item to the queue
 void enqueue(circular_queue *q, product value);
 
-//TASK 2
+
 //function to return an item from the queue
 product dequeue(circular_queue *q);
 
-//TASK 2
+
 //merge 4 production lines into one dispatch list using circular queues
 void merge_queues_to_dispatch_list(product line1[], int size1, product line2[], int size2, product line3[], int size3, product line4[], int size4, product merged[], int *mergedSize) ;
 
-//TASK 2
+
 void print_production_line2(product arr[], int count);
 
-//TASK 3
+
 //Function to find earliest occurence of a product with a particular weight
 int binary_search(product arr[], int left, int right, float weight);
 
-//Task 4
+
 //Function to summarise the number of products in the delivery
 void summarise_delivery(product dispatch_list[], int count);
 
 
 int main()
 {
-    //TASK 1
+    
     //array pointer for each file
-    const char *files[4] = {"line1.txt", "line2.txt", "line3.txt", "line4.txt"};
+    const char *files[4] = {"data/line1.txt", "data/line2.txt", "data/line3.txt", "data/line4.txt"};
 
     //One array for each production line
     product production_line1[MAXSIZE], production_line2[MAXSIZE], production_line3[MAXSIZE], production_line4[MAXSIZE];
@@ -157,7 +157,7 @@ int main()
     return 0;
 } // end main
 
-//TASK 1
+
 //function to read the files
 int read_file(const char *filename, product item[])
 {
@@ -190,9 +190,9 @@ int read_file(const char *filename, product item[])
     fclose(file);
     return count;
   
-} //end function
+} //end read function
 
-//TASK 1
+
 // function to sort arr of items
 //recursively divides array into smaller arrays until it reaches base case then merges back in sorted order
 void merge_sort(product arr[], int left, int right)
@@ -205,9 +205,9 @@ void merge_sort(product arr[], int left, int right)
         merge_sort(arr, mid + 1, right);
         merge(arr, left, mid, right) ;
     } // end if
-} //end function
+} //end merge_sort function
 
-//TASK 1
+
 //function to merge arrays
 // merges two sorted subarrays
 void merge(product arr[], int left, int mid, int right)
@@ -270,9 +270,9 @@ void merge(product arr[], int left, int mid, int right)
         j++ ;
         k++ ;
     } //end while
-} //end function
+} //end merge function
 
-//TASK 1
+
 //Function to print production lines
 void print_production_line(product arr[])
 {
@@ -282,10 +282,10 @@ void print_production_line(product arr[])
         printf("|%d      |%.2f \n", arr[i].productID, arr[i].weight);
     } //end for 
 
-} //end function
+} //end print function
 
-//TASK 2
-// function to merge the lists into one dispatch list
+
+// function to merge the lists into one sorted dispatch list
 void merge_queues_to_dispatch_list(product line1[], int size1, product line2[], int size2, product line3[], int size3, product line4[], int size4, product merged[], int *merged_size)
 {
     //Initialise circular queues for each production line
@@ -365,25 +365,25 @@ void merge_queues_to_dispatch_list(product line1[], int size1, product line2[], 
         *merged_size = index;
     } //end while
     
-} //end function
+} //end merge_queues_to_dispatch_list function
 
-//TASK 2
+
 //Function to initialise empty queue
 void init_queue(circular_queue *q)
 {
     q -> head = -1;
     q -> tail = -1;
     q -> queue_size = 0;
-} //end function
+} //end init function
 
-//TASK 2
+
 //Function to check if queue is empty
 int is_empty(circular_queue *q)
 {
     return(q -> queue_size == 0);
-} //end function
+} //end is_empty function
 
-//TASK 2
+
 //Function to add a production item to the queue
 void enqueue(circular_queue *q, product value)
 {
@@ -404,9 +404,9 @@ void enqueue(circular_queue *q, product value)
 
     q -> elements[q -> tail] = value;
     q -> queue_size++;
-} // end function
+} // end enqueue function
 
-//TASK 2
+
 //Function to return a production item from the queue
 product dequeue(circular_queue *q)
 {
@@ -431,9 +431,9 @@ product dequeue(circular_queue *q)
 
     q -> queue_size-- ;
     return value;
-} //end function
+} //end dequeue function
 
-//TASK 2
+// prints production line 2
 void print_production_line2(product arr[], int count)
 {
     printf("\n|Product id| Product weight\n");
@@ -441,9 +441,9 @@ void print_production_line2(product arr[], int count)
     {
         printf("|%-10d   |%-13.2f \n", arr[i].productID, arr[i].weight);
     }
-} //end function
+} //end print_production_line2 function
 
-//TASK 3
+
 //Function to find earliest occurence of a product with a particular weight
 //recursively cuts the search range in half each time
 int binary_search(product arr[], int left, int right, float weight)
@@ -476,13 +476,13 @@ int binary_search(product arr[], int left, int right, float weight)
 
     // if weight isnt found 
     return -1;
-} // end function
+} // end binary_search function
 
 
-//TASK 4
+
 //Function to summarise the number of products in the delivery
 void summarise_delivery(product dispatch_list[], int count)
 {
     printf("\n--- Delivery Summary Report ---\n");
     printf("Total number of products in delivery: %d\n\n", count);
-} //end function
+} //end summary function

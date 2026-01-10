@@ -25,5 +25,5 @@ Make sure the `data/ ` folder is in the same folder as the executable
 
 ## Clean
 to remove the compiled executable
-`make clean`
 
+`make clean`
