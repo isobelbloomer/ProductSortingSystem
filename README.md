@@ -10,18 +10,20 @@ This project received **100%** in Algorithm Design at TU Dublin.
 - All functionality is implemented in a single file (`main.c`).
 
 ## Files
-- src/main.c → main program
+- `src/main.c` → main program
 - data/line1.txt, data/line2.txt, data/line3.txt, data/line4.txt → sample input files
 - Makefile → build configuration
 
 ## Build
-```bash
-make
+just run:
+`make`
 
 ## Run
-./main
+After building, run the program with:
+`./main`
+Make sure the `data/ ` folder is in the same folder as the executable
 
 ## Clean
 to remove the compiled executable
-make clean
+`make clean`
 
