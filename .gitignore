@@ -1,6 +1,8 @@
-# Ignore compiled files
-*.o
-Main
+# macOS system files
+.DS_Store
 
-Main
+# Compiled objects
 *.o
+
+# Compiled program / binary
+main
